@@ -73,46 +73,46 @@ WWW (port 443, HTTPS)
 - [ ] Install Docker and Docker Compose on the VM
 - [X] Create the project directory structure as shown above
 - [ ] Configure `/etc/hosts` so `<login>.42.fr` points to `127.0.0.1`
-- [X] Create the `Makefile` at root that builds everything via `docker-compose.yml`
+- [x] Create the `Makefile` at root that builds everything via `docker-compose.yml`
 - [X] Create the `.env` file inside `srcs/` with all environment variables (DOMAIN_NAME, MYSQL_USER, etc.)
 - [X] Create the `secrets/` directory with credential files and add them to `.gitignore`
 
 ### Phase 2 - MariaDB Container
 
-- [ ] Write the Dockerfile based on penultimate stable Alpine or Debian (no `latest` tag)
-- [ ] Install MariaDB server
-- [ ] Create an entrypoint script that:
+- [X] Write the Dockerfile based on penultimate stable Alpine or Debian (no `latest` tag)
+- [X] Install MariaDB server
+- [X] Create an entrypoint script that:
   - Initializes the database if not already initialized
   - Creates the WordPress database
   - Creates a regular user and sets passwords from environment variables/secrets
   - Starts `mysqld` as PID 1 (foreground, no hacky patches)
-- [ ] Configure MariaDB to listen on port 3306
+- [X] Configure MariaDB to listen on port 3306
 - [ ] Test: connect to the database from another container
 
 ### Phase 3 - WordPress + PHP-FPM Container
 
-- [ ] Write the Dockerfile based on penultimate stable Alpine or Debian
-- [ ] Install PHP-FPM and required PHP extensions for WordPress
-- [ ] Download and install WordPress via WP-CLI
-- [ ] Create an entrypoint script that:
+- [X] Write the Dockerfile based on penultimate stable Alpine or Debian
+- [X] Install PHP-FPM and required PHP extensions for WordPress
+- [X] Download and install WordPress via WP-CLI
+- [X] Create an entrypoint script that:
   - Configures `wp-config.php` with database credentials from env/secrets
   - Creates two WordPress users (one admin, one regular)
   - Admin username must NOT contain "admin/Admin/administrator/Administrator" etc.
   - Starts `php-fpm` in foreground as PID 1
-- [ ] Configure PHP-FPM to listen on port 9000
+- [X] Configure PHP-FPM to listen on port 9000
 - [ ] Test: verify WordPress connects to MariaDB
 
 ### Phase 4 - NGINX Container
 
-- [ ] Write the Dockerfile based on penultimate stable Alpine or Debian
-- [ ] Install NGINX
-- [ ] Generate or provide TLS/SSL certificates (self-signed is fine)
-- [ ] Configure NGINX to:
+- [X] Write the Dockerfile based on penultimate stable Alpine or Debian
+- [X] Install NGINX
+- [X] Generate or provide TLS/SSL certificates (self-signed is fine)
+- [X] Configure NGINX to:
   - Listen on port 443 only (HTTPS)
   - Use TLSv1.2 or TLSv1.3 only
   - Proxy PHP requests to WordPress container on port 9000
   - Serve the domain `<login>.42.fr`
-- [ ] Start NGINX in foreground as PID 1
+- [X] Start NGINX in foreground as PID 1
 - [ ] Test: access `https://<login>.42.fr` in the browser
 
 ### Phase 5 - Docker Compose & Networking
@@ -128,10 +128,10 @@ WWW (port 443, HTTPS)
 
 ### Phase 6 - Makefile
 
-- [ ] `make` / `make all`: build and start the infrastructure
-- [ ] `make down`: stop containers
-- [ ] `make re`: rebuild everything
-- [ ] `make clean`: stop and remove containers, volumes, networks
+- [X] `make` / `make all`: build and start the infrastructure
+- [X] `make down`: stop containers
+- [X] `make re`: rebuild everything
+- [X] `make clean`: stop and remove containers, volumes, networks
 
 ### Phase 7 - Documentation
 
@@ -146,15 +146,15 @@ WWW (port 443, HTTPS)
 
 ### Phase 8 - Security & Validation Checklist
 
-- [ ] No passwords hardcoded in Dockerfiles
-- [ ] No credentials committed to git (use `.gitignore`)
-- [ ] No `latest` tag in any Dockerfile
-- [ ] No `tail -f`, `bash`, `sleep infinity`, `while true` in entrypoints
+- [X] No passwords hardcoded in Dockerfiles
+- [X] No credentials committed to git (use `.gitignore`)
+- [X] No `latest` tag in any Dockerfile
+- [X] No `tail -f`, `bash`, `sleep infinity`, `while true` in entrypoints
 - [ ] No `network: host`, `--link`, or `links:` in docker-compose
-- [ ] All containers use PID 1 properly (daemon runs in foreground)
-- [ ] NGINX is the only entrypoint (port 443)
-- [ ] TLSv1.2 or TLSv1.3 only
-- [ ] `.env` file stores environment variables
+- [X] All containers use PID 1 properly (daemon runs in foreground)
+- [X] NGINX is the only entrypoint (port 443)
+- [X] TLSv1.2 or TLSv1.3 only
+- [X] `.env` file stores environment variables
 - [ ] Docker secrets used for confidential data
 - [ ] Containers auto-restart on crash
 - [ ] Volumes at `/home/<login>/data`
