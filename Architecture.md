@@ -72,7 +72,7 @@ WWW (port 443, HTTPS)
 - [ ] Set up a Virtual Machine (Debian or Alpine-based)
 - [ ] Install Docker and Docker Compose on the VM
 - [X] Create the project directory structure as shown above
-- [ ] Configure `/etc/hosts` so `<login>.42.fr` points to `127.0.0.1`
+- [X] Configure `/etc/hosts` so `<login>.42.fr` points to `127.0.0.1`
 - [x] Create the `Makefile` at root that builds everything via `docker-compose.yml`
 - [X] Create the `.env` file inside `srcs/` with all environment variables (DOMAIN_NAME, MYSQL_USER, etc.)
 - [X] Create the `secrets/` directory with credential files and add them to `.gitignore`
