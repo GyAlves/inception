@@ -69,8 +69,8 @@ WWW (port 443, HTTPS)
 
 ### Phase 1 - Environment Setup
 
-- [ ] Set up a Virtual Machine (Debian or Alpine-based)
-- [ ] Install Docker and Docker Compose on the VM
+- [X] Set up a Virtual Machine (Debian or Alpine-based)
+- [X] Install Docker and Docker Compose on the VM
 - [X] Create the project directory structure as shown above
 - [X] Configure `/etc/hosts` so `<login>.42.fr` points to `127.0.0.1`
 - [x] Create the `Makefile` at root that builds everything via `docker-compose.yml`
@@ -117,14 +117,14 @@ WWW (port 443, HTTPS)
 
 ### Phase 5 - Docker Compose & Networking
 
-- [ ] Write `docker-compose.yml` with all three services
-- [ ] Define the docker network (no `network: host`, no `--link`, no `links:`)
-- [ ] Define two named volumes (database and WordPress files) mapped to `/home/<login>/data`
-- [ ] Set restart policy for all containers (`restart: on-failure` or `restart: unless-stopped`)
-- [ ] Reference `.env` file for environment variables
-- [ ] Use Docker secrets for sensitive data (recommended)
-- [ ] Ensure Docker image names match service names
-- [ ] Ensure Dockerfiles are called in `docker-compose.yml`
+- [X] Write `docker-compose.yml` with all three services
+- [X] Define the docker network (no `network: host`, no `--link`, no `links:`)
+- [X] Define two named volumes (database and WordPress files) mapped to `/home/<login>/data`
+- [X] Set restart policy for all containers (`restart: on-failure` or `restart: unless-stopped`)
+- [X] Reference `.env` file for environment variables
+- [X] Use Docker secrets for sensitive data (recommended)
+- [X] Ensure Docker image names match service names
+- [X] Ensure Dockerfiles are called in `docker-compose.yml`
 
 ### Phase 6 - Makefile
 
@@ -135,14 +135,14 @@ WWW (port 443, HTTPS)
 
 ### Phase 7 - Documentation
 
-- [ ] `README.md` with:
+- [X] `README.md` with:
   - Italicized first line: *This project has been created as part of the 42 curriculum by `<login>`*
   - Description section (explain Docker usage, design choices)
   - Comparisons: VMs vs Docker, Secrets vs Env Vars, Docker Network vs Host Network, Docker Volumes vs Bind Mounts
   - Instructions section
   - Resources section (including AI usage description)
-- [ ] `USER_DOC.md`: how to start/stop, access website and admin panel, manage credentials, check services
-- [ ] `DEV_DOC.md`: setup from scratch, build/launch with Makefile, manage containers/volumes, data persistence
+- [X] `USER_DOC.md`: how to start/stop, access website and admin panel, manage credentials, check services
+- [X] `DEV_DOC.md`: setup from scratch, build/launch with Makefile, manage containers/volumes, data persistence
 
 ### Phase 8 - Security & Validation Checklist
 
@@ -150,14 +150,14 @@ WWW (port 443, HTTPS)
 - [X] No credentials committed to git (use `.gitignore`)
 - [X] No `latest` tag in any Dockerfile
 - [X] No `tail -f`, `bash`, `sleep infinity`, `while true` in entrypoints
-- [ ] No `network: host`, `--link`, or `links:` in docker-compose
+- [X] No `network: host`, `--link`, or `links:` in docker-compose
 - [X] All containers use PID 1 properly (daemon runs in foreground)
 - [X] NGINX is the only entrypoint (port 443)
 - [X] TLSv1.2 or TLSv1.3 only
 - [X] `.env` file stores environment variables
-- [ ] Docker secrets used for confidential data
-- [ ] Containers auto-restart on crash
-- [ ] Volumes at `/home/<login>/data`
+- [X] Docker secrets used for confidential data
+- [X] Containers auto-restart on crash
+- [X] Volumes at `/home/<login>/data`
 
 ---
 
