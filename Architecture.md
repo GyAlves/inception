@@ -87,7 +87,7 @@ WWW (port 443, HTTPS)
   - Creates a regular user and sets passwords from environment variables/secrets
   - Starts `mysqld` as PID 1 (foreground, no hacky patches)
 - [X] Configure MariaDB to listen on port 3306
-- [ ] Test: connect to the database from another container
+- [X] Test: connect to the database from another container
 
 ### Phase 3 - WordPress + PHP-FPM Container
 
@@ -100,7 +100,7 @@ WWW (port 443, HTTPS)
   - Admin username must NOT contain "admin/Admin/administrator/Administrator" etc.
   - Starts `php-fpm` in foreground as PID 1
 - [X] Configure PHP-FPM to listen on port 9000
-- [ ] Test: verify WordPress connects to MariaDB
+- [X] Test: verify WordPress connects to MariaDB
 
 ### Phase 4 - NGINX Container
 
@@ -113,7 +113,7 @@ WWW (port 443, HTTPS)
   - Proxy PHP requests to WordPress container on port 9000
   - Serve the domain `<login>.42.fr`
 - [X] Start NGINX in foreground as PID 1
-- [ ] Test: access `https://<login>.42.fr` in the browser
+- [X] Test: access `https://<login>.42.fr` in the browser
 
 ### Phase 5 - Docker Compose & Networking
 
