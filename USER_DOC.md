@@ -21,11 +21,11 @@ From the project root:
 
 ## Access the website
 
-1. Make sure `gyasminalves.42.fr` resolves to `127.0.0.1`. On the VM, this is configured in `/etc/hosts`.
-2. Open `https://gyasminalves.42.fr` in a browser.
+1. Make sure `galves-a.42.fr` resolves to `127.0.0.1`. On the VM, this is configured in `/etc/hosts`.
+2. Open `https://galves-a.42.fr` in a browser.
 3. The certificate is self-signed, so the browser will warn — accept the warning to continue.
 
-WordPress admin panel: `https://gyasminalves.42.fr/wp-admin`.
+WordPress admin panel: `https://galves-a.42.fr/wp-admin`.
 
 ---
 
@@ -69,7 +69,7 @@ Per-service health and logs:
 |---|---|
 | Logs (live) for one service | `docker logs -f <nginx|wordpress|mariadb>` |
 | Open a shell in a container | `docker exec -it <service> bash` |
-| Verify HTTPS endpoint | `curl -kI https://gyasminalves.42.fr` |
+| Verify HTTPS endpoint | `curl -kI https://galves-a.42.fr` |
 | Verify WP-DB connectivity | `docker exec wordpress wp db check --allow-root --path=/var/www/html` |
 | MariaDB ping | `docker exec mariadb mysqladmin ping -uroot -p"$(cat secrets/db_root_password.txt)"` |
 

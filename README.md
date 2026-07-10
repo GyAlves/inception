@@ -1,4 +1,4 @@
-*This project has been created as part of the 42 curriculum by `gyasminalves`*
+*This project has been created as part of the 42 curriculum by `galves-a`*
 
 # Inception
 
@@ -8,7 +8,7 @@ System administration project: a small infrastructure of three services orchestr
 
 ## Description
 
-The infrastructure exposes a single HTTPS entrypoint (NGINX) that proxies PHP requests over a private Docker network to a WordPress + PHP-FPM container, which itself talks to a MariaDB container. All persistent data lives on the host under `/home/gyasminalves/data`, mounted into the containers via named volumes.
+The infrastructure exposes a single HTTPS entrypoint (NGINX) that proxies PHP requests over a private Docker network to a WordPress + PHP-FPM container, which itself talks to a MariaDB container. All persistent data lives on the host under `/home/galves-a/data`, mounted into the containers via named volumes.
 
 Design choices:
 
@@ -16,7 +16,7 @@ Design choices:
 - **No `latest` tag.** Every image is pinned to `debian:bullseye` (penultimate stable).
 - **Secrets, not env vars, for credentials.** Passwords are mounted at `/run/secrets/*` and read inside entrypoint scripts; non-sensitive config (DB name, usernames, domain) lives in `srcs/.env`.
 - **Private bridge network.** Containers reach each other by service name (`mariadb`, `wordpress`); only NGINX publishes a port (443) to the host.
-- **Bind-mounted named volumes.** The two volumes (`db_data`, `wp_data`) use `driver_opts` to bind directly to `/home/gyasminalves/data/{mariadb,wordpress}`, so the data is visible and backupable from the host.
+- **Bind-mounted named volumes.** The two volumes (`db_data`, `wp_data`) use `driver_opts` to bind directly to `/home/galves-a/data/{mariadb,wordpress}`, so the data is visible and backupable from the host.
 
 ---
 
@@ -38,10 +38,10 @@ A pure named volume is fully managed by Docker (stored under `/var/lib/docker/vo
 
 ## Instructions
 
-Prerequisites: Docker, Docker Compose, `make`. On the VM, add `127.0.0.1 gyasminalves.42.fr` to `/etc/hosts`, and create the bind-mount directories:
+Prerequisites: Docker, Docker Compose, `make`. On the VM, add `127.0.0.1 galves-a.42.fr` to `/etc/hosts`, and create the bind-mount directories:
 
 ```
-sudo mkdir -p /home/gyasminalves/data/mariadb /home/gyasminalves/data/wordpress
+sudo mkdir -p /home/galves-a/data/mariadb /home/galves-a/data/wordpress
 ```
 
 Build and start everything:
@@ -50,7 +50,7 @@ Build and start everything:
 make
 ```
 
-Then open `https://gyasminalves.42.fr` in a browser (accept the self-signed certificate warning). The WordPress admin panel is at `https://gyasminalves.42.fr/wp-admin`.
+Then open `https://galves-a.42.fr` in a browser (accept the self-signed certificate warning). The WordPress admin panel is at `https://galves-a.42.fr/wp-admin`.
 
 Other targets: `make down` (stop), `make re` (rebuild), `make clean` (stop and wipe containers/volumes/images).
 

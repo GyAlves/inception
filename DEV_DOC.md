@@ -18,11 +18,11 @@ Target environment: a Debian or Alpine VM (the project is tested on Debian).
 2. Clone the repository into the home directory.
 3. Add the project domain to `/etc/hosts`:
    ```
-   echo "127.0.0.1 gyasminalves.42.fr" | sudo tee -a /etc/hosts
+   echo "127.0.0.1 galves-a.42.fr" | sudo tee -a /etc/hosts
    ```
 4. Create the bind-mount directories required by the volumes (the compose file expects them to exist):
    ```
-   sudo mkdir -p /home/gyasminalves/data/mariadb /home/gyasminalves/data/wordpress
+   sudo mkdir -p /home/galves-a/data/mariadb /home/galves-a/data/wordpress
    ```
 5. Populate `secrets/` with one password per file:
    - `secrets/db_root_password.txt` — MariaDB root password
@@ -108,8 +108,8 @@ Two named volumes, both bind-mounted to host directories:
 
 | Volume | Host path | Container path | Owner |
 |---|---|---|---|
-| `db_data` | `/home/gyasminalves/data/mariadb` | `/var/lib/mysql` (mariadb) | MariaDB datadir |
-| `wp_data` | `/home/gyasminalves/data/wordpress` | `/var/www/html` (wordpress and nginx) | WordPress files |
+| `db_data` | `/home/galves-a/data/mariadb` | `/var/lib/mysql` (mariadb) | MariaDB datadir |
+| `wp_data` | `/home/galves-a/data/wordpress` | `/var/www/html` (wordpress and nginx) | WordPress files |
 
 Implications:
 
@@ -120,8 +120,8 @@ Implications:
 
 ### Backup and restore
 
-Backup (host-side): `tar -C /home/gyasminalves/data -czf backup.tgz mariadb wordpress`.
-Restore: stop the stack (`make down`), extract the archive into `/home/gyasminalves/data/`, restart (`make`).
+Backup (host-side): `tar -C /home/galves-a/data -czf backup.tgz mariadb wordpress`.
+Restore: stop the stack (`make down`), extract the archive into `/home/galves-a/data/`, restart (`make`).
 
 ---
 

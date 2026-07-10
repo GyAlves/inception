@@ -73,13 +73,13 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: /home/gyasminalves/data/mariadb
+      device: /home/galves-a/data/mariadb
   wp_data:
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: /home/gyasminalves/data/wordpress
+      device: /home/galves-a/data/wordpress
 
 secrets:
   db_password:
