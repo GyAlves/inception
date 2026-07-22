@@ -33,4 +33,4 @@ if [ ! -f "/var/www/html/wp-config.php" ]; then
         --allow-root
 fi
 
-exec php-fpm7.4 -F
+exec php-fpm8.2 -F

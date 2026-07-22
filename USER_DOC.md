@@ -42,7 +42,7 @@ Database credentials:
 
 | Account | Username | Source of password |
 |---|---|---|
-| WordPress DB user | `wpuser` | `secrets/db_password.txt` |
+| WordPress DB user | `wp_user` | `secrets/db_password.txt` |
 | MariaDB root | `root` | `secrets/db_root_password.txt` |
 
 ### Rotating a password
